@@ -171,7 +171,7 @@ hr.small {
 /* Services */
 
 .services {
-    padding: 150px 0;
+    padding: 120px 0;
 }
 
 .service-item {
@@ -240,8 +240,12 @@ hr.small {
 
 /* Map */
 
+.info {
+    padding: 210px;
+}
+
 .map {
-    height: 500px;
+    height: 450px;
 }
 
 @media(max-width:768px) {
@@ -253,5 +257,5 @@ hr.small {
 /* Footer */
 
 footer {
-    padding: 40px 0;
+    padding: 50px 0;
 }

@@ -179,6 +179,8 @@ hr.small {
     color: black;
 }
 
+/* Changing button effects */
+
 .hvr-grow { 
     display: inline-block;
     vertical-align: middle;

@@ -5,7 +5,6 @@
 -->
 
 <!-- This is a comment --> 
-    
 <head>
 
     <meta charset="utf-8">
@@ -39,42 +38,70 @@
 </head>
 
 <body>
+    <!-- Nav Bar -->
+    <div class="navbar transparent navbar-inverse navbar-fixed-top" style = "margin-bottom: 0px;">
+        <nav class="navbar-inner">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img alt="Clove" src="img/logo.jpg" style="width:35px;height:35px;">
+                </a>
+            </div>
+            <div>
+            <h1 style="font-family: Tahoma; font-size: 20px; color:#F1ECEC">Clove</h1>
+            </div>
+        </div>
+        </nav>
+        <!-- Navigation -->
+        <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+        <nav id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <a id="menu-close" href="#" style="color:transparent"><i class="fa fa-times"></i></a>
+                <li class="sidebar-brand">
+                    <a href="#top"  onclick = $("#menu-close").click(); >Clove</a>
+                </li>
+                <li>
+                    <a href="#top" onclick = $("#menu-close").click(); >Home</a>
+                </li>
+                <li>
+                    <a href="#services" onclick = $("#menu-close").click(); >Services</a>
+                </li>
 
-    <!-- Navigation -->
-    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
-    <nav id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-            <li class="sidebar-brand">
-                <a href="#top"  onclick = $("#menu-close").click(); >Clove</a>
-            </li>
-            <li>
-                <a href="#top" onclick = $("#menu-close").click(); >Home</a>
-            </li>
-            <li>
-                <a href="#services" onclick = $("#menu-close").click(); >Services</a>
-            </li>
-
-            <!-- Currently not needed on site. --> 
-           <!-- <li>
-                <a href="#signup" onclick = $("#menu-close").click(); >Signup</a>
-            </li> -->
-           	<!-- Currently not needed on site. --> 
-           <!-- <li>
-                <a href="#info" onclick = $("#menu-close").click(); >Info</a>
-            </li> -->
-            <li> 
-                <a href="#map" onclick = $("#menu-close").click(); >Map</a>
-            </li>
-        </ul>
-    </nav>
+                <!-- Currently not needed on site. --> 
+                <!-- <li>
+                    <a href="#signup" onclick = $("#menu-close").click(); >Signup</a>
+                </li> -->
+                <!-- Currently not needed on site. --> 
+               <!-- <li>
+                    <a href="#info" onclick = $("#menu-close").click(); >Info</a>
+                </li> -->
+                <li> 
+                    <a href="#map" onclick = $("#menu-close").click(); >Map</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
-            <h1 style="font-family: Tahoma; font-size: 80px">Clove</h1>
-            <h3 style="font-family: Tahoma">Engage with your Surroundings</h3>
-            <a href="#services" class="btn btn-dark btn-lg">Learn More</a>
+            
+            <h1 style="font-family: Tahoma; font-size: 50px; color:#F1ECEC">Request a beta invite</h1>
+            
+            <h3 style="font-family: Tahoma; color:#F1ECEC">Observe people doing these things with clove.<br>We are launching soon</h3>
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input id="emailInputBox" style="text-align: center" type="text" class="form-control" placeholder="Enter your email for a sneak peek" aria-describedby="basic-addon2">
+                            <!-- Side Addon -->
+                            <span class="input-group-addon" id="basic-addon2">@gmail.com</span>
+                        </div>
+                        <div class= "custom" >
+                            <a id="sendButton" onclick="signupFunction()" class="btn btn-light btn-lg" style="margin:15px">Send</a>
+                            <a href="#services" class="btn btn-light btn-lg">Learn More</a>    
+                        </div>
+                    </div>    
+                    </div>
         </div>
     </header>
 
@@ -102,10 +129,9 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-lg-10 col-lg-offset-1">
-                    <h2 style="font-size: 40px">Here's what you'll enjoy.</h2>
+                    <h2 style="font-size: 40px ; color:black">Here's what you'll enjoy.</h2>
                     <hr class="small">
                     <div class="row">
-                    <br>
                     <br>
                     <br>
                         <div class="col-md-3 col-sm-6">
@@ -119,7 +145,7 @@
                                 <h4 style="font-family: tahoma">
                                     <strong>Local</strong>
                                 </h4>
-                                <p  style="font-size: 18px ; color: white">Knows what's going on around you. Never miss out on local activity.</p>
+                                <p  style="font-size: 18px ; color: black">Knows what's going on around you. Never miss out on local activity.</p>
                                 <!--<a href="#" class="btn btn-light">Learn More</a>-->
                             </div>
                         </div>
@@ -134,7 +160,7 @@
                                 <h4 style="font-family: tahoma">
                                     <strong>Visual</strong>
                                 </h4>
-                                <p style="font-size: 18px ; color: white">Click on what you want to see from our detailed map.</p>
+                                <p style="font-size: 18px ; color: black">Click on what you want to see from our detailed map.</p>
                                 <!--<a href="#" class="btn btn-light">Learn More</a>-->
                             </div>
                         </div>
@@ -149,7 +175,7 @@
                                 <h4 style="font-family: tahoma">
                                     <strong>Interact</strong>
                                 </h4>
-                                <p  style="font-size: 18px ; color: white">Interact with other users, doing so anonymously.</p>
+                                <p  style="font-size: 18px ; color: black">Interact with other users, doing so anonymously.</p>
                                 <!--<a href="#" class="btn btn-light">Learn More</a>-->
                             </div>
                         </div>
@@ -164,7 +190,7 @@
                                 <h4 style="font-family: tahoma">
                                     <strong>Promote</strong>
                                 </h4>                      
-                                <p  style="font-size: 18px ; color: white">Have a business you want to promote? Use our app for more conversions.</p>
+                                <p  style="font-size: 18px ; color: black">Have a business you want to promote? Use our app for more conversions.</p>
                                 <!--<a href="#" class="btn btn-light">Learn More</a>-->
                             </div>
                         </div>

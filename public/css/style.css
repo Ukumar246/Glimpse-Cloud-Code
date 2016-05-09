@@ -49,6 +49,79 @@ body {
   background-color: #ffffff;
   font-weight: 300;
 }
+
+
+
+/* Signal of services section CSS from V1 of Glimpse */
+
+
+
+.services {
+    padding: 150px 0;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.bg-primary {
+  color: #fff;
+  background-color: #337ab7;
+}
+
+.col-lg-10 {
+    width: 83.33333333%;
+  }
+
+.col-lg-offset-1 {
+    margin-left: 8.33333333%;
+  }
+
+.small {
+  font-size: 85%;
+}
+
+ .col-sm-6 {
+    width: 50%;
+  }
+
+.service-item {
+    margin-bottom: 100px;
+    color: black;
+}
+
+.col-md-3 {
+    width: 25%;
+  }
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(1.1);
+}
+
+.hvr-g { 
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+/* End of CSS for services section */
+
+
 body.canvas-sliding,
 body.canvas-slid {
   overflow-x: hidden;

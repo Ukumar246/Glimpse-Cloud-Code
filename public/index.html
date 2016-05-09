@@ -187,16 +187,17 @@
 						<!-- ================ -->
 						<div class="main col-md-12">
 							<div class="row">
-								<div class="col-md-6">
-									<img src="images/section-image-1.png" alt="">		
+								<div class="col-md-6" style="height: 326px;">
+									<!-- Image for service section 
+                                        NOTE: This is BAD BAD Override of element.style (326px is a magic number)-->
+                                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
+                                    src="https://www.google.com/maps/embed/v1/view?zoom=13&center=43.6532%2C-79.3832&key=AIzaSyBxx_XH83SmVUB2i8-p0Xcx4HdJt4xKN4I" allowfullscreen></iframe>
 								</div>
 								<div class="col-md-6">
 									<h2 style="color: white;">Some features you'll love.</h2>
 									<div class="media">
 										<div class="media-left pr-20">
-											
-												<span class="icon circle small default-bg"><i class="icon-eye"></i> </span>
-											
+								            <span class="icon circle small default-bg"><i class="icon-eye"></i> </span>
 										</div>
 										<div class="media-body">
                                             <h4 class="media-heading" style="font-family:'Roboto',sans-serif; color: white; font-size:20px">Local</h4>
@@ -205,9 +206,7 @@
 									</div>
 									<div class="media">
 										<div class="media-left pr-20">
-											
-												<span class="icon circle small default-bg"><i class="icon-trophy"></i> </span>
-											
+								            <span class="icon circle small default-bg"><i class="icon-trophy"></i> </span>
 										</div>
 										<div class="media-body">
 											<h4 class="media-heading" style="font-family:'Roboto',sans-serif; color: white; font-size:20px">Visual</h4>
@@ -216,9 +215,7 @@
 									</div>
 									<div class="media">
 										<div class="media-left pr-20">
-											
-												<span class="icon circle small default-bg"><i class="icon-lifebuoy"></i> </span>
-											
+								            <span class="icon circle small default-bg"><i class="icon-lifebuoy"></i> </span>
 										</div>
 										<div class="media-body">
 											<h4 class="media-heading" style="font-family:'Roboto',sans-serif; color: white; font-size:20px">Interact</h4>
@@ -228,8 +225,7 @@
 									<!-- dont need this button
                                     <a href="#" class="btn btn-lg btn-default btn-animated">Purchase <i class="fa fa-cart-arrow-down pl-20"></i></a> -->                    
 								</div>
-							</div>
-							<hr>
+                            </div>
 						</div>
 						<!-- main end -->
 					</div>
@@ -310,14 +306,13 @@
                  <section id="contact" class="map" style="height:400px">
                     <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
                         src="https://www.google.com/maps/embed/v1/view?zoom=13&center=43.6532%2C-79.3832&key=AIzaSyBxx_XH83SmVUB2i8-p0Xcx4HdJt4xKN4I" allowfullscreen></iframe>
-                    <br />
+                    <br/>
                 </section>
 			<!-- section end -->
 
 			<!-- footer start (Add "dark" class to #footer in order to enable dark footer) -->
 			<!-- ================ -->
 			<footer id="footer" class="clearfix ">
-
 				<!-- .footer start -->
 				<!-- ================ -->
 				<div class="footer">

@@ -2,50 +2,50 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
-	<!--<![endif]-->
+<!--<![endif]-->
 
-	<head>
-		<meta charset="utf-8">
-		<title>Glimpse</title>
-		<meta name="description" content="The Project a Bootstrap-based, Responsive HTML5 Template">
-		<meta name="author" content="htmlcoder.me">
+<head>
+    <meta charset="utf-8">
+    <title>Glimpse</title>
+    <meta name="description" content="The Project a Bootstrap-based, Responsive HTML5 Template">
+    <meta name="author" content="htmlcoder.me">
 
-		<!-- Mobile Meta -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Mobile Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="images/favicon.ico">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico">
 
-		<!-- Web Fonts -->
-		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
+    <!-- Web Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
 
-		<!-- Bootstrap core CSS -->
-		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 
-		<!-- Font Awesome CSS -->
-		<link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
 
-		<!-- Fontello CSS -->
-		<link href="fonts/fontello/css/fontello.css" rel="stylesheet">
+    <!-- Fontello CSS -->
+    <link href="fonts/fontello/css/fontello.css" rel="stylesheet">
 
-		<!-- Plugins -->
-		<link href="plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
-		<link href="css/animations.css" rel="stylesheet">
-		<link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
-		<link href="plugins/owl-carousel/owl.transitions.css" rel="stylesheet">
-		<link href="plugins/hover/hover-min.css" rel="stylesheet">		
-		
-		<!-- The Project core CSS file -->
-		<link href="css/style.css" rel="stylesheet" >
-		<!-- Color Scheme (In order to change the color scheme, replace the blue.css with the color scheme that you prefer)-->
-		<link href="css/skins/light_blue.css" rel="stylesheet">
+    <!-- Plugins -->
+    <link href="plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="css/animations.css" rel="stylesheet">
+    <link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="plugins/owl-carousel/owl.transitions.css" rel="stylesheet">
+    <link href="plugins/hover/hover-min.css" rel="stylesheet">		
+    <!-- The Project core CSS file -->
+    <link href="css/style.css" rel="stylesheet" >
+    <!-- Color Scheme (In order to change the color scheme, replace the blue.css with the color scheme that you prefer)-->
+    <link href="css/skins/light_blue.css" rel="stylesheet">
 
-		<!-- Custom css --> 
-		<link href="css/custom.css" rel="stylesheet">
-	</head>
+    <!-- Custom css --> 
+    <link href="css/custom.css" rel="stylesheet">
+    
+</head>
 
 	<!-- body classes:  -->
 	<!-- "boxed": boxed layout mode e.g. <body class="boxed"> -->
@@ -165,10 +165,11 @@
 									<form class="form-inline margin-clear">
 										<div class="form-group has-feedback">
 											<label class="sr-only" for="subscribe3">Email address</label>
-											<input type="email" class="form-control form-control-lg" id="subscribe3" placeholder="Enter email" name="subscribe3" required="">
+											<input id="emailTextInput" type="email" class="form-control form-control-lg" id="subscribe3" placeholder="Enter email" name="subscribe3" required="">
 											<i class="fa fa-envelope form-control-feedback"></i>
 										</div>
-										<button type="submit" class="btn btn-lg btn-gray-transparent btn-animated margin-clear">Signup <i class="fa fa-send"></i></button>
+                                        <!-- This button will call the js sign up function-->
+										<button type="submit" onclick="signUpFunction()" class="btn btn-lg btn-gray-transparent btn-animated margin-clear">Signup <i class="fa fa-send"></i></button>
 									</form>
 								</div>
 							</div>
@@ -375,6 +376,44 @@
 		<script type="text/javascript" src="js/template.js"></script>
 		<!-- Custom Scripts -->
 		<script type="text/javascript" src="js/custom.js"></script>
+        
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+        
+        <!-- Database Connection JS -->
+        <script type="text/javascript">
+            console.log("Connected to database.");
+            var appID = "0R6LwrHMNcPYkNbXZ7Opm6W34am82n0x2r49Xhg0";
+            var jsKey = "F6HFSkJideOsyt5hsxeo8wktfJ5pjiXV8bkWFZYH";
+            Parse.initialize(appID, jsKey);
+            
+            function signUpFunction()
+            {      
+                var email = document.getElementById("emailTextInput").value;
+                if (email == null || email == "")
+                {
+                    console.log("Empty Request");
+                    return;    
+                }
+                
+                console.log("Signing up user " + email);
+                var Request = Parse.Object.extend("SignupRequest");
+                var newRequest = new Request();
 
-	</body>
+                newRequest.set("name", "Unknown");
+                newRequest.set("email", email);
+                newRequest.set("source", "Webpage/Glimpse_V1.0");
+
+                newRequest.save(null, {
+                  success: function(newRequest) {
+                    
+                    alert("Signup Successful!");
+                  },
+                  error: function(newRequest, error) {
+                    alert("Failed to signup!, with error code: " + error.message);
+                  }
+                });
+            }
+        </script>
+	
+    </body>
 </html>

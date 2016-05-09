@@ -57,7 +57,7 @@ body {
 
 
 .services {
-    padding: 50px 0;
+    padding: 100px 0;
 }
 
 .container {
@@ -67,9 +67,9 @@ body {
   margin-left: auto;
 }
 
-.row {
-  margin-right: -15px;
-  margin-left: -15px;
+.row-service {
+  margin-right: -60px;
+  margin-left: -60px;
 }
 
 .bg-primary {
@@ -95,6 +95,7 @@ body {
 
 .service-item {
     margin-bottom: 100px;
+    margin-top: 100px;
     color: white;
 }
 

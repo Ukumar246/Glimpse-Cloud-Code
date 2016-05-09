@@ -57,7 +57,7 @@ body {
 
 
 .services {
-    padding: 150px 0;
+    padding: 50px 0;
 }
 
 .container {
@@ -74,7 +74,7 @@ body {
 
 .bg-primary {
   color: #fff;
-  background-color: #337ab7;
+  background-color: #060918;
 }
 
 .col-lg-10 {
@@ -95,7 +95,7 @@ body {
 
 .service-item {
     margin-bottom: 100px;
-    color: black;
+    color: white;
 }
 
 .col-md-3 {

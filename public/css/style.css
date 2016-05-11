@@ -3890,6 +3890,9 @@ fieldset[disabled] .form-control {
   border-radius: 5px;
   border: 1px solid transparent;
 }
+
+.material-icons {line-height: inherit;}
+
 .icons .icon {
   margin: 0 5px 5px 0;
 }

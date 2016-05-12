@@ -57,6 +57,10 @@ function parseSignupRequest()
           emailElement.placeholder = "Cool! Check your inbox!";
           buttonElement.innerHTML = "Signed Up!" + buttonAddonTag;
           buttonElement.disabled = true;
+          
+          emailElement.removeEventListener("keydown", keyHandler);
+          emailElement.disabled = true;
+          emailElement.style.opacity = "1";
       },
       error: function(newRequest, error) {
           var errorMessage = error.message;
@@ -71,11 +75,26 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-
 function ParseInit()
 {
     var appID = "0R6LwrHMNcPYkNbXZ7Opm6W34am82n0x2r49Xhg0";
     var jsKey = "F6HFSkJideOsyt5hsxeo8wktfJ5pjiXV8bkWFZYH";
     Parse.initialize(appID, jsKey);
     console.log("Connected to database.");
+}
+
+function attachKeyBindings()
+{
+    var ID_emailTextInput = "emailTextInput";
+    var emailElement = document.getElementById(ID_emailTextInput);
+    
+    emailElement.addEventListener("keydown", keyHandler);
+}
+
+function keyHandler(e)
+{
+    if (e.keyCode === 13) 
+    {  //checks whether the pressed key is "Enter"
+            parseSignupRequest();
+    }
 }

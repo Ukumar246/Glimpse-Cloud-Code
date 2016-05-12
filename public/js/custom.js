@@ -58,7 +58,7 @@ function parseSignupRequest()
           buttonElement.innerHTML = "Signed Up!" + buttonAddonTag;
           buttonElement.state = 0;
           
-          emailElement.removeEventListener("keydown", keyHandler);
+          //emailElement.removeEventListener("keydown", keyHandler);
       },
       error: function(newRequest, error) {
           var errorMessage = error.message;
@@ -102,6 +102,7 @@ function clickHandler() {
     if (buttonElement.state == 0)            // Disabled Button Text
     {
         buttonElement.innerHTML = "Signup" + buttonAddonTag;
+        buttonElement.state = 1;            // Don't repeatedly come back here
     }
     
     return;

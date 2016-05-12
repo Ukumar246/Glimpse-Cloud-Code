@@ -173,8 +173,10 @@
 											<input id="emailTextInput" type="email" class="form-control form-control-lg" id="subscribe3" placeholder="Enter email" name="subscribe3" required="">
 											<i class="fa fa-envelope form-control-feedback"></i>
 										</div>
-                                        <!-- This button will call the js sign up function-->
-										<button type="submit" onclick="signUpFunction()" class="btn btn-lg btn-gray-transparent btn-animated margin-clear">Signup <i class="fa fa-send"></i></button>
+                                        <!-- This button will call the js sign up function
+                                                Note: This button is a as**** -Why?: Remember we are inside a form tag! :)
+                                        -->
+										<button name="data" type="button" onclick="parseSignupRequest()" class="btn btn-lg btn-gray-transparent btn-animated margin-clear">Signup <i class="fa fa-send"></i></button>
 									</form>
 								</div>
 							</div>
@@ -390,38 +392,8 @@
         
         <!-- Database Connection JS -->
         <script type="text/javascript">
-            console.log("Connected to database.");
-            var appID = "0R6LwrHMNcPYkNbXZ7Opm6W34am82n0x2r49Xhg0";
-            var jsKey = "F6HFSkJideOsyt5hsxeo8wktfJ5pjiXV8bkWFZYH";
-            Parse.initialize(appID, jsKey);
-            
-            function signUpFunction()
-            {      
-                var email = document.getElementById("emailTextInput").value;
-                if (email == null || email == "")
-                {
-                    console.log("Empty Request");
-                    return;    
-                }
-                
-                console.log("Signing up user " + email);
-                var Request = Parse.Object.extend("SignupRequest");
-                var newRequest = new Request();
-
-                newRequest.set("name", "Unknown");
-                newRequest.set("email", email);
-                newRequest.set("source", "Webpage/Glimpse_V1.0");
-
-                newRequest.save(null, {
-                  success: function(newRequest) {
-                    
-                    alert("Signup Successful!");
-                  },
-                  error: function(newRequest, error) {
-                    alert("Failed to signup!, with error code: " + error.message);
-                  }
-                });
-            }
+            // Start Parse
+            ParseInit();
         </script>
 	
     </body>

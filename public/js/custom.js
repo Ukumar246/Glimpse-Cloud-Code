@@ -97,7 +97,6 @@ function clickHandler() {
     var buttonElement = document.getElementById(ID_signupButton);
     var buttonAddonTag = "<i class=\"fa fa-send\">";                // Static tag for that image 
     
-    var disabled_buttonValue = "Signed Up!" + buttonAddonTag;
     var buttonTitle = buttonElement.innerHTML;
     
     if (buttonElement.state == 0)            // Disabled Button Text

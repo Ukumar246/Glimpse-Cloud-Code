@@ -16,7 +16,7 @@ function parseSignupRequest()
     
     var emailElement = document.getElementById(ID_emailTextInput);
     var buttonElement = document.getElementById(ID_signupButton);
-    var buttonAddonTag = "<i class=\"fa fa-send\">";
+    var buttonAddonTag = "<i class=\"fa fa-send\">";    // Static tag for that image 
     
     var email = emailElement.value;
     
@@ -56,11 +56,9 @@ function parseSignupRequest()
           emailElement.value = null;
           emailElement.placeholder = "Cool! Check your inbox!";
           buttonElement.innerHTML = "Signed Up!" + buttonAddonTag;
-          buttonElement.disabled = true;
+          buttonElement.state = 0;
           
           emailElement.removeEventListener("keydown", keyHandler);
-          emailElement.disabled = true;
-          emailElement.style.opacity = "1";
       },
       error: function(newRequest, error) {
           var errorMessage = error.message;
@@ -88,7 +86,26 @@ function attachKeyBindings()
     var ID_emailTextInput = "emailTextInput";
     var emailElement = document.getElementById(ID_emailTextInput);
     
+    // Enter key
     emailElement.addEventListener("keydown", keyHandler);
+    emailElement.addEventListener("click", clickHandler);
+    
+}
+
+function clickHandler() {
+    var ID_signupButton = "signupButton";
+    var buttonElement = document.getElementById(ID_signupButton);
+    var buttonAddonTag = "<i class=\"fa fa-send\">";                // Static tag for that image 
+    
+    var disabled_buttonValue = "Signed Up!" + buttonAddonTag;
+    var buttonTitle = buttonElement.innerHTML;
+    
+    if (buttonElement.state == 0)            // Disabled Button Text
+    {
+        buttonElement.innerHTML = "Signup" + buttonAddonTag;
+    }
+    
+    return;
 }
 
 function keyHandler(e)

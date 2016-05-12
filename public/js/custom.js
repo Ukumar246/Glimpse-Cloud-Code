@@ -9,32 +9,65 @@
  */
 
 function parseSignupRequest()
-{      
-    var email = document.getElementById("emailTextInput").value;
-    if (email == null || email == "")
-    {
+{   
+    // DOM ID's
+    var ID_emailTextInput = "emailTextInput";
+    var ID_signupButton = "signupButton";
+    
+    var emailElement = document.getElementById(ID_emailTextInput);
+    var buttonElement = document.getElementById(ID_signupButton);
+    var buttonAddonTag = "<i class=\"fa fa-send\">";
+    
+    var email = emailElement.value;
+    
+    var isValid = validateEmail(email);
+    console.log("Email is ", isValid);
+    
+    if (email == null || email == "")                   // Empty Form
+    {   
+        // CSS Changes to input box
+        emailElement.style.border = "2px solid red";   //width style color|initial|inherit
+        emailElement.placeholder = "Please enter your email here";
+        
         console.log("Empty Request");
         return;    
     }
-
+    else if (!isValid){                                // Bad Email
+        emailElement.style.border = "2px solid red";   //width style color|initial|inherit
+        emailElement.value = "Try Again";
+        console.log("Bad Email");
+        return;
+    }
+    
+    // Revert CSS Changes
+    emailElement.style.border = "1px solid #ccc";      //width style color|initial|inherit
+    
     console.log("Signing up user " + email);
     var Request = Parse.Object.extend("SignupRequest");
     var newRequest = new Request();
 
     newRequest.set("name", "Unknown");
     newRequest.set("email", email);
-    newRequest.set("source", "Webpage/Glimpse_V1.0");
+    newRequest.set("source", "Webpage/Warp_V1.0");
 
     newRequest.save(null, {
       success: function(newRequest) {
-
-        alert("Signup Successful!");
+          emailElement.value = "Cool! Check your inbox!";
+          buttonElement.innerHTML = "Signed Up!" + buttonAddonTag;
+          buttonElement.disabled = true;
       },
       error: function(newRequest, error) {
-        alert("Failed to signup!, with error code: " + error.message);
+          var errorMessage = error.message;
+          emailElement.value = errorMessage;
       }
     });
 }
+
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+
 
 function ParseInit()
 {

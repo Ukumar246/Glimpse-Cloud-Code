@@ -34,7 +34,8 @@ function parseSignupRequest()
     }
     else if (!isValid){                                // Bad Email
         emailElement.style.border = "2px solid red";   //width style color|initial|inherit
-        emailElement.value = "Try Again";
+        emailElement.value = null;
+        emailElement.placeholder = "Try Again";
         console.log("Bad Email");
         return;
     }
@@ -52,13 +53,15 @@ function parseSignupRequest()
 
     newRequest.save(null, {
       success: function(newRequest) {
-          emailElement.value = "Cool! Check your inbox!";
+          emailElement.value = null;
+          emailElement.placeholder = "Cool! Check your inbox!";
           buttonElement.innerHTML = "Signed Up!" + buttonAddonTag;
           buttonElement.disabled = true;
       },
       error: function(newRequest, error) {
           var errorMessage = error.message;
-          emailElement.value = errorMessage;
+          emailElement.value = null;
+          emailElement.placeholder = errorMessage;
       }
     });
 }

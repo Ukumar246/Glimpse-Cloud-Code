@@ -49,7 +49,7 @@ function parseSignupRequest()
 
     newRequest.set("name", "Unknown");
     newRequest.set("email", email);
-    newRequest.set("source", "Webpage/Warp_V1.0");
+    newRequest.set("source", "Webpage/Glimpse/1.0");
 
     newRequest.save(null, {
       success: function(newRequest) {

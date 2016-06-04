@@ -14,12 +14,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="images/company.png">
+    <link rel="shortcut icon" href="images/Logo_BW.png">
 
     <!-- Google Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-
 
     <!-- Web Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -241,8 +239,12 @@
 			<!-- section start -->		
                 <!-- Map -->
                  <section id="contact" class="map" style="height:400px">
+                    <!--    Dynamic Map    -->
+                    <div id="map" style="height: 100%; width: 100%;">
+                    <!--
                     <iframe id="map" width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
                         src="https://www.google.com/maps/embed/v1/view?zoom=13&center=43.6532%2C-79.3832&key=AIzaSyBxx_XH83SmVUB2i8-p0Xcx4HdJt4xKN4I" allowfullscreen></iframe>
+                    -->
                     <br/>
                 </section>
 			<!-- section end -->
@@ -312,11 +314,18 @@
 		<script type="text/javascript" src="js/custom.js"></script>
         
         <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
-        
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxx_XH83SmVUB2i8-p0Xcx4HdJt4xKN4I" type="text/javascript"></script>
+            
         <!-- Database Connection JS -->
         <script type="text/javascript">
             // Start Parse
             ParseInit();
+            
+            // Center the map
+            centerMap();
+            
+            // Load the Map with Posts
+            fetchAllPosts();
             
             // Key binding
             attachKeyBindings();

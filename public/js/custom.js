@@ -115,3 +115,68 @@ function keyHandler(e)
             parseSignupRequest();
     }
 }
+
+function fetchAllPosts(){
+    var Post = Parse.Object.extend("Post");
+    var query = new Parse.Query(Post);
+    
+    query.find({
+        success: function(results) {
+            console.log("* Found " + results.length + " Posts");
+            
+            var locations = [];
+            
+            for (var a=0; a< results.length; a++){
+                var post = results[a];
+                var comment = post.get("comment");
+                console.log(" - Title: " + comment);
+                
+                var geoPoint = post.get("location");
+                // [Locations] > ['Maroubra Beach', -33.950198, 151.259302, 1]
+                var postProperty = [comment, geoPoint.latitude, geoPoint.longitude, 1];
+                
+                locations.push(postProperty);
+            }
+            populateMap(locations);
+        },
+        error: function(error) {
+            console.log("! No Posts Found!");
+        }
+    });
+}
+
+function centerMap(){
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: new google.maps.LatLng(43.644647, -79.384847),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+}
+
+function populateMap(locations){
+    
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: new google.maps.LatLng(43.644647, -79.384847),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) 
+    { 
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+}

@@ -1,2 +1,3 @@
 # Nearby-Cloud-Code
-Cloud Code for Nearby.
+Glimpse Website Code 
+![alt tag](http://getaglimpse.ca/images/mockup.png)
